@@ -1,0 +1,32 @@
+
+
+class student:
+    def __init__(self,name):
+        self.name=name
+    
+    def getname(self):
+        return self.name
+    
+class age(student):
+    
+    def __init__(self,name,age):
+        student.__init__(self,name)
+        self.age=age
+    
+    def getage(self):
+        return self.age
+        
+class hybrid(age):
+    
+    def __init__(self,name,age,roll):
+        age.__init__(self,name,age)
+        self.roll=roll
+        
+    def getroll(self):
+        return self.roll
+    
+student_1=hybrid("Som",23,4)
+student_2=age("som",23)
+print(student_1.getroll())
+print(student_1.getname())
+
