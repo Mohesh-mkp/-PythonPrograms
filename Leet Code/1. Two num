@@ -1,0 +1,2 @@
+
+iterate=int(input("Enter number of values addedto list: "))
