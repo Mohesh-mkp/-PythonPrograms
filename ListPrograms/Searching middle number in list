@@ -32,21 +32,20 @@ class LinkedList:
         print("\nCount: ",count)
         if count%2==1:
             eq=count//2
-            print("\nposition: ",eq)
+            print("position: ",eq)
         else:
             eq=count//2
             d=eq+1
-            print("\nposition: ",eq,d)
+            print("position: ",eq,d)
         ctr=0
         temp=self.head
         while temp:
             temp=temp.next
             ctr+=1
             if count%2==1 and ctr==eq:
-                print(ctr)
-                print(temp.data)
+                print("Middle Value of the List is: ",temp.data)
             elif count%2==0 and ctr==eq:
-                print(temp.data,temp.next.data)
+                print("Middle Values of the List are: ",temp.data,temp.next.data)
                 
     def disp(self):
         temp=self.head
