@@ -1,0 +1,65 @@
+
+class node:
+    
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+
+class LinkedList:
+    
+    def __init__(self):
+        self.head=None
+    
+    def insert(self,val):
+        node_obj=node(val)
+        if self.head is None:
+            self.head=node_obj
+        else:
+            temp=self.head
+            while temp.next:
+                temp=temp.next
+            temp.next=node_obj
+            temp=temp.next
+   
+    def search(self):
+        temp=self.head
+        count = 0
+        eq=0
+        while temp:
+            temp=temp.next
+            count+=1
+        temp = self.head
+        print("\nCount: ",count)
+        if count%2==1:
+            eq=count//2
+            print("\nposition: ",eq)
+        else:
+            eq=count//2
+            d=eq+1
+            print("\nposition: ",eq,d)
+        ctr=0
+        temp=self.head
+        while temp:
+            temp=temp.next
+            ctr+=1
+            if count%2==1 and ctr==eq:
+                print(ctr)
+                print(temp.data)
+            elif count%2==0 and ctr==eq:
+                print(temp.data,temp.next.data)
+                
+    def disp(self):
+        temp=self.head
+        while temp:
+            print(temp.data, end="-->")
+            temp=temp.next
+
+my_list=LinkedList()
+list_len=int(input("Enter numbers of input to be added in list: "))
+
+for i in range(0,list_len):
+    val=int(input("Enter number to list: "))
+    my_list.insert(val)
+
+my_list.disp()
+my_list.search()
