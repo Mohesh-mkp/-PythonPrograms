@@ -1,0 +1,16 @@
+
+def is_pallindrome():
+    my_str=input("Enter a string: ")
+    my_str_len=len(my_str)
+    res=my_str_len//2
+    
+    for i in range(0,res):
+        if (my_str[i]!=my_str[my_str_len-i-1]):
+            print("False")
+            print("Given string is not Palindrome")
+            break
+        elif (my_str[i]==my_str[my_str_len-i-1]) and my_str[res]==my_str[my_str_len-res-1]:
+            print("Given string is palindrome")
+            return True
+            
+is_pallindrome()  
