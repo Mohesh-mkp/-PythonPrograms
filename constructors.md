@@ -1,12 +1,21 @@
-The constructor function in python is called __new__ and __init__ is the initializer function.
-Quoting the python documentation, __new__ is used when you need to control the creation of a new instance while __init__ is used when you need to control the initialization of a new instance.
-__new__ is the first step of instance creation. It's called first and is responsible for returning a new instance of your class.
-n contrast, __init__ doesn't return anything; it's only responsible for initializing the instance after it's been created. In general, you shouldn't need to override __new__unless you're subclassing an immutable type like str, int, Unicode, or tuple.
+**The constructor function in python is called ``` __new__ and __init__``` is the initializer function.**
 
-The constructor is a method that is called when an object is created. This method is defined in the class and can be used to initialize basic variables.
+👉 __new__ is used when you need to control the creation of a new instance while __init__ is used when you need to control the initialization of a new instance.
+
+```__new__``` is the first step of instance creation. It's called first and is responsible for returning a new instance of your class.
+In contrast, ```__init__``` doesn't return anything; it's only responsible for initializing the instance after it's been created. 
+
+## constructor:
+
+In every language constructor is:
+
+*The constructor is a method that is called when an object is created. This method is defined in the class and can be used to initialize basic variables.
 If you create four objects, the class constructor is called four times. Every class has a constructor, but its not required to explicitly define it.
-Each time an object is created a method is called. That methods is named the constructor.
+Each time an object is created a method is called. That methods is named the constructor.*
+
 The constructor is created with the function init. As parameter we write the self keyword, which refers to itself (the object). The process visually is:
+
+![image](https://user-images.githubusercontent.com/101304247/166910311-ed1f9e39-4e90-4d6d-9e2a-7b3cae287bf5.png)
 
 python __init__
 The function init(self) builds your object. Its not just variables you can set here, you can call class methods too. Everything you need to initialize the object(s).
@@ -15,6 +24,7 @@ Lets say you have a class Plane, which upon creation should start flying. There 
 
 The default actions can be defined in methods. These methods can be called in the constructor.
 
+```python
 class Plane:
     def __init__(self):
         self.wings = 2
@@ -34,7 +44,9 @@ class Plane:
             print('Closing wheels')
 
 ba = Plane()
-To summarize: A constructor is called if you create an object. In the constructor you can set variables and call methods.
+```
+
+**To summarize: A constructor is called if you create an object. In the constructor you can set variables and call methods.**
 
 Default value
 The constructor of a class is unique: initiating objects from different classes will call different constructors.
@@ -43,6 +55,7 @@ Default values of newly created objects can be set in the constructor.
 
 The example belwo shows two classes with constructors. Then two objects are created but different constructors are called.
 
+```python
 class Bug:
    def __init__(self):
        self.wings = 4
@@ -57,4 +70,6 @@ tom = Bug()
 
 print(tom.wings)
 print(bob.arms)
+
+```
 But creating multiple objects from one class, will call the same constructor.
