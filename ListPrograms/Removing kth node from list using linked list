@@ -1,0 +1,61 @@
+class node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+        self.prev=None
+class stack:
+    def __init__(self):
+        self.head=None
+    def insert(self,val):
+        node_obj=node(val)
+        if self.head is None:
+            self.head=node_obj
+        else:
+            temp=self.head
+            while temp.next:
+                temp=temp.next
+            temp.next=node_obj
+            node_obj.prev = temp
+            temp=temp.next
+    
+    def pop_remove(self):
+        if self.head is None:
+            print("Stack underflow")
+        else:
+            temp=self.head
+            while temp.next:
+                print(temp.data)
+                temp=temp.next
+            temp_prev = temp.prev
+            print(temp_prev.data)
+            temp.prev.next=None
+
+    def disp(self):
+        temp=self.head
+        while temp:
+            print(temp.data,end="->")
+            temp=temp.next
+    
+    def remove_kth_node(self,index_to_remove):
+        count=0
+        temp=self.head
+        print("Remove Kth node")
+        while count<=index_to_remove:
+            if count != index_to_remove:
+                count+=1
+                temp=temp.next
+            else:
+                temp_prev = temp.prev
+                temp_next = temp.next
+                temp_prev.next = temp_next
+                temp_next.prev = temp_prev
+                break
+                
+my_list=stack()
+my_list.insert(10)
+my_list.insert(20)
+my_list.insert(30)
+my_list.insert(40)
+my_list.disp()
+my_list.remove_kth_node(2)
+my_list.disp()
