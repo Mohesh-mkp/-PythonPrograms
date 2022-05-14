@@ -1,0 +1,47 @@
+class node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+        self.prev=None
+class stack:
+    def __init__(self):
+        self.head=None
+    def insert(self,val):
+        node_obj=node(val)
+        if self.head is None:
+            self.head=node_obj
+            
+        else:
+            temp=self.head
+            while temp.next:
+                temp=temp.next
+                
+            temp.next=node_obj
+            node_obj.prev = temp
+            temp=temp.next
+    
+    def pop_remove(self):
+        if self.head is None:
+            print("Stack underflow")
+        else:
+            temp=self.head
+            while temp.next:
+                print(temp.data)
+                temp=temp.next
+            temp_prev = temp.prev
+            print(temp_prev.data)
+            temp.prev.next=None
+
+    def disp(self):
+        temp=self.head
+        while temp:
+            print(temp.data,end="->")
+            temp=temp.next
+
+my_list=stack()
+my_list.insert(10)
+my_list.insert(20)
+my_list.insert(30)
+my_list.insert(40)
+my_list.pop_remove()
+my_list.disp()
