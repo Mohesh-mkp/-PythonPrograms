@@ -1,0 +1,44 @@
+
+class node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+        self.prev=None
+class Queue:
+    def __init__(self):
+        self.head=None
+    def Enqueue(self,val):
+        node_obj=node(val)
+        if self.head is None:
+            self.head=node_obj
+        else:
+            temp=self.head
+            while temp.next:
+                temp=temp.next
+            temp.next=node_obj
+            temp=temp.next
+    def Disp(self):
+        temp=self.head
+        while temp:
+            print(temp.data,end="->")
+            temp=temp.next
+        print('\n')
+    def Dequeue(self):
+        if self.head is None:
+            print("Queue Underflow")
+        else:
+            temp=self.head
+            front=temp.next
+            self.head=front
+            temp.next=None
+            if front is None:
+                print("Queue Underflow")
+
+my_queue=Queue()
+my_queue.Enqueue(10)
+my_queue.Enqueue(20)
+my_queue.Enqueue(30)
+my_queue.Enqueue(40)
+my_queue.Disp()
+my_queue.Dequeue()
+my_queue.Disp()
