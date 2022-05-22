@@ -1,0 +1,20 @@
+
+my_list=[]
+list_len=int(input("Enter number of elements to be inserted in list: "))
+
+for i in range(0,list_len):
+    num_to_enter_in_list=int(input("Enter number to be inserted in list: "))
+    my_list.append(num_to_enter_in_list)
+
+intv=list_len//2
+while intv>0:
+    for i in range(intv,list_len):
+        temp=my_list[i]
+        j=i
+        while j>=intv and my_list[j-intv]>my_list[j]:
+            my_list[j]=my_list[j-intv]
+            j-=intv
+            my_list[j]=temp
+    intv//=2
+    
+print("shorted list: ",my_list)
