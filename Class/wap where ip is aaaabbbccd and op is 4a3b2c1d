@@ -1,0 +1,28 @@
+
+class Example:
+    def str_define(self):
+        self.x=input("Enter string : ")
+    def length(self):
+        self.s=len(self.x)
+        return self.s
+    def que(self):
+        i,c=0,1
+        output=''
+        while i<self.s:
+            if i+1==self.s:
+                output=output+(str(c)+self.x[i])
+                break
+            x=self.x[i]
+            if x==self.x[i+1]:
+                i+=1
+                c+=1
+            else:
+                output=output+(str(c)+self.x[i])
+                c=1
+                i+=1
+        print(output)
+eg=Example()
+eg.str_define()
+s=eg.length()
+print("The length : ",s)
+eg.que()
