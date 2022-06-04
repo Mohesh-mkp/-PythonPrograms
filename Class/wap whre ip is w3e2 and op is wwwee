@@ -1,0 +1,26 @@
+
+class Example:
+    def my_str(self):
+        self.x=input("Enter string: ")
+        return self.x
+    def my_str_len(self):
+        self.s=len(self.x)
+        return self.s
+    def que(self):
+        output=''
+        i=0
+        while i<self.s:
+            if i+1==self.s:
+                break
+            if self.x[i].isalpha() and self.x[i+1].isdigit():
+                k=self.x[i]*int(self.x[i+1])
+                output=output+k
+                i+=1
+            elif self.x[i].isdigit():
+                i+=1
+                continue
+        print(output)
+eg=Example()
+eg.my_str()
+eg.my_str_len()
+eg.que()
