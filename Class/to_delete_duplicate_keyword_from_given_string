@@ -1,0 +1,15 @@
+class Deletion_of_duplicate:
+    
+    def __init__(self):
+        self.my_str=input("Enter string: ")
+        self.my_str_len=len(self.my_str)
+    
+    def delete_duplicate_word(self):
+        out=''
+        for i in range(self.my_str_len):
+            if self.my_str[i] not in out:
+                out=out+self.my_str[i]
+        print(out)
+
+delt=Deletion_of_duplicate()
+delt.delete_duplicate_word()
