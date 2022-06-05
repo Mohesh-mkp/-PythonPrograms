@@ -1,0 +1,45 @@
+
+class Example:
+    def my_str(self):
+        self.x=input("Enter string: ")
+        return self.x
+    def my_str_len(self):
+        self.s=len(self.x)
+        return self.s
+    def que(self):
+        output=''
+        res=True
+        i=0
+        while i<self.s:
+            if i-1<0:
+                if self.x[i].isalpha():
+                    output=output+self.x[i]
+                    k=ord(self.x[i])
+                    i+=1
+                elif self.x[i].isdigit():
+                    res=False
+                    break
+            elif self.x[i].isalpha() and self.x[i-1].isalpha():
+                res=False
+                break
+            elif self.x[i].isdigit() and self.x[i-1].isdigit():
+                res=False
+                break
+            elif self.x[i].isdigit():
+                temp=ord(self.x[i-1])
+                temp=temp+int(self.x[i])
+                temp=chr(temp)
+                output=output+temp
+                i+=1
+            else:
+                output=output+self.x[i]
+                i+=1
+        if res==True:
+            print(output)
+        else:
+            print('''Not valid sequence as requirement...please follow the requirement as below example
+            input: a3b2     output: adbd''')
+eg=Example()
+eg.my_str()
+eg.my_str_len()
+eg.que()
