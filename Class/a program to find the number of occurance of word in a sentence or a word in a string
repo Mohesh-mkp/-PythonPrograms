@@ -1,0 +1,32 @@
+class Deletion_of_duplicate:
+    
+    def __init__(self):
+        self.my_str=input("Enter sentence: ")
+        self.my_subs=input("Enter word to be searched: ")
+        self.my_str_len=len(self.my_str)
+        self.my_subs_len=len(self.my_subs)
+    
+    def delete_duplicate_word(self):
+        out,c,k,m,t=[],0,0,0,0
+        for i in range(self.my_str_len):
+            if self.my_str[i].isspace():
+                c+=1
+        if c>=1:
+            my_list=self.my_str.split()
+            for i in my_list:
+                if i==self.my_subs:
+                    k+=1
+            print('''The word "{}" present '{}' times in the Sentence'''.format(self.my_subs,k))
+        else:
+            while i<self.my_str_len:
+                out.append(self.my_str[m:m+self.my_subs_len])
+                m+=1
+                if m+self.my_subs_len>self.my_str_len:
+                    break
+            for ch in out:
+                if ch==self.my_subs:
+                    t+=1
+            print('''The word '{}' present '{}' times in the string'''.format(self.my_subs,t))
+
+delt=Deletion_of_duplicate()
+delt.delete_duplicate_word()
