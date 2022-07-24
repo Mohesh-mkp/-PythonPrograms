@@ -1,0 +1,58 @@
+
+class ListNode:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class Solution:
+    def __init__(self):
+        self.head=None
+    def insert(self,data):
+        node_obj=ListNode(data)
+        if self.head is None:
+            self.head=node_obj
+        else:
+            temp=self.head
+            while temp.next:
+                temp=temp.next
+            temp.next=node_obj
+            temp=temp.next
+    def isPalindrome(self):
+        prev=None
+        prev2=None
+        prev1,prev3=[],[]
+        temp=self.head
+        temp1=self.head
+        cur=temp
+        while cur:
+            nxt=cur.next
+            cur.next=prev
+            prev=cur
+            cur=nxt
+            prev1.append(prev.data)
+        print(prev1)
+        self.head=prev
+        while prev:
+            nxt=prev.next
+            prev.next=prev2
+            prev2=prev
+            prev=nxt
+            prev3.append(prev2.data)
+        print(prev3)
+        k=False
+        for i in range(len(prev1)):
+            if prev1[i] == prev3[i]:
+                k=True
+                continue
+            else:
+                print("False")
+                break
+        if k==True:
+            print("True")
+
+s=Solution()
+s.insert(10)
+s.insert(20)
+s.insert(30)
+s.insert(20)
+s.insert(10)
+s.isPalindrome()
