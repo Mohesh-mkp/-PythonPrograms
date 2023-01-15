@@ -10,3 +10,4 @@ for i in word:
         i = chr(ord(i)-32)
     res=res+i
 print('Updated Shuffled string: ',res)
+
