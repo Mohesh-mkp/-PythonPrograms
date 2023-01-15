@@ -12,3 +12,4 @@ for i in word:
         res = res+i.upper()
 
 print(res)
+
