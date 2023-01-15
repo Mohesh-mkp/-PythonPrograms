@@ -1,0 +1,12 @@
+### Lowerupper_Shuffle_without_using_builtin_Function ###
+
+word = input('Enter shuffeled string: ')
+word_len = 0
+res = ''
+for i in word:
+    if 65<ord(i)<91:
+        i = chr(ord(i)+32)
+    else:
+        i = chr(ord(i)-32)
+    res=res+i
+print('Updated Shuffled string: ',res)
