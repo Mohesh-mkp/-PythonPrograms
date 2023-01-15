@@ -1,0 +1,13 @@
+my_list = []
+list_len = int(input('Enter length of list: '))
+for i in range(list_len):
+    val = int(input('Enter value to be entered in list: '))
+    my_list.append(val)
+print(my_list)
+pos = int(input('Enter position to insert vale: '))
+key = int(input('Enter value to insert in list: '))
+my_list.append(None)
+for i in range(list_len-1,pos-1,-1):
+    my_list[i+1] = my_list[i]
+my_list[pos] = key
+print(my_list)
