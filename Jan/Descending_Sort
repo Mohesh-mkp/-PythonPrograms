@@ -1,0 +1,15 @@
+my_list = []
+list_len = int(input('Enter length of list: '))
+for i in range(list_len):
+    val = int(input('Enter value to be entered in list: '))
+    my_list.append(val)
+print(my_list)
+
+for i in range(1,list_len):
+    for j in range(0,i):
+        if my_list[j] < my_list[i]:
+            k = my_list[j]
+            my_list[j] = my_list[i]
+            my_list[i]= k
+print(my_list)
+
