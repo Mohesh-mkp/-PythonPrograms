@@ -1,0 +1,14 @@
+### Lowerupper_Shuffle_with_builtin_lower&Upper_Function ###
+
+word = input('Enter shuffeled string: ')
+word_len = 0
+res = ''
+for i in word:
+    word_len+=1
+    if i.isupper():
+        res = res+i.lower()
+    else:
+        i.upper()
+        res = res+i.upper()
+
+print(res)
