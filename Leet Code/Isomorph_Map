@@ -1,0 +1,18 @@
+
+class Solution(object):
+    def isIsomorphic(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        isomorph_map = {}
+        if len(s) != len(t):
+            return False
+        for i in range(len(s)):
+            if s[i] not in isomorph_map and t[i] not in isomorph_map.values():
+                isomorph_map[s[i]] = t[i]
+            elif s[i] not in isomorph_map or isomorph_map[s[i]] != t[i]:
+                return False
+        else:
+            return True
