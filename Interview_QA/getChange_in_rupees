@@ -1,0 +1,46 @@
+###
+Problem 1 - Get change
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|  You are running a shop. Your money tray consists of 1 rupee, 50 paise, 25 paise, 10 paise, 5 paise and 1 paise coins.   |
+|  Given the price of something, and the amount someone gives,                                                             |     Description
+|  write a program to calculate the minimum number of each of these coins you have to give back to someone.                |
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+getChange(x, y) = [a, b, c, d, e, f];
+
+x = money that buyer gives in rupees        y = price in rupees                       a = number of 1 paise coins     b = number of 5 paise coins
+c = number of 10 paise coins                d = number of 25 paise coins              e = number of 50 paise coins    f = number of 1 rupee coins
+
+...
+Examples
+getChange(5, 0.99); //must return [1,0,0,0,0,4]
+getChange(3.14, 1.99); // must return [0,1,1,0,0,1]
+getChange(4, 3.14); // must return [1,0,1,1,1,0]
+
+###
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Solution : 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+def getChange(x,y):
+    paisa_table_container = {5:'1P',4:'5P',3:'10P',2:'25P',1:'50P',0:'1R'}
+    paisa_list = [100,50,25,10,5,1]
+    res = [0]*len(paisa_list)
+    if y>x:
+        print('Not sufficient money, you have to pay {} extra rupees'.format(y-x))
+    else:
+        Money_to_return = x-y
+        amt_in_paisa_to_return = int(100*Money_to_return)
+        print(amt_in_paisa_to_return)
+        while amt_in_paisa_to_return != 0:    
+            for amt in range(0,len(paisa_list)):
+                if amt_in_paisa_to_return >= paisa_list[amt]:
+                    amt_in_paisa_to_return = amt_in_paisa_to_return - paisa_list[amt]
+                    print(amt_in_paisa_to_return)
+                    prev = amt
+                    break
+            res[prev]+=1
+                
+    return res
+return_amount = getChange(5,3.5)[::-1]
+print(return_amount)
