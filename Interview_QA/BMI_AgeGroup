@@ -1,0 +1,63 @@
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Problem 2 - Body Mass Index
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+The Body Mass Index (BMI) of a person is calculated using the formula BMI = weight/(height*height), with a unit of (kg/m2).
+Given an array of objects of the form [{height: 175, weight: 40, age: 25.1}...] (height in cm, weight in kg, age in years), 
+write a program that calculates the which age group of people have the highest average BMI, and their average BMI. 
+Age groups are in groups of 5 years - 0-4.9, 5-9.9, 10-14.9 etc.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Examples
+highestAverageBMI([{height: 175, weight: 50, age: 21},
+   {height: 170, weight: 77, age: 22},
+   {height: 175, weight: 70, age: 24},
+   {height: 175, weight: 75, age: 26},
+   {height: 175, weight: 50, age: 29},
+   {height: 170, weight: 77, age: 34}]) = {ageGroup: "30-34.9", averageBmi: 26.64}
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Solution
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+class Person:
+    def __init__(self,h,w,a):
+        self.height = h 
+        self.weight = w
+        self.age = a 
+        
+    def CalculateBMI(self):
+        return  (self.weight*10000)/(self.height**2)
+    
+    def CalculateAgeGroup(self):
+        start = (self.age // 5)*5
+        end = start + 4.9
+        return (start,end)
+
+class Solution:
+    @staticmethod
+    def CalculateAvgBmi(list_persons):
+        agegroup_bmi_map = {}
+        max_bmi = float('-inf')
+        max_agegroup_pair = None
+        avg_bmi = 0
+
+        for person in list_persons:
+            person_bmi = person.CalculateBMI()
+            age_group = person.CalculateAgeGroup()
+            
+            if age_group not in agegroup_bmi_map:
+                avg_bmi = person_bmi
+            else:
+                avg_bmi = (agegroup_bmi_map[age_group] + person_bmi)/2
+            
+            agegroup_bmi_map[age_group] = avg_bmi
+            
+        for age_group , avg_bmi in agegroup_bmi_map.items():
+            if max_bmi < avg_bmi:
+                max_bmi = avg_bmi
+                max_agegroup_pair = age_group
+    
+        return (max_agegroup_pair, max_bmi)        
+        
+def Input():
+    list_person = [Person(500, 100, 18),Person(100, 150, 20),Person(200, 120, 21)]
+    print(Solution.CalculateAvgBmi(list_person))
+
+Input()
