@@ -1,0 +1,25 @@
+
+class Solution(object):
+    def frequencySort(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        res = ''
+        char_hold = {}
+        max_val = 0
+        for i in s:
+            if i not in char_hold:
+                char_hold[i] = 1
+            else:
+                char_hold[i]+=1
+        key_list = list(char_hold.keys())
+        val_list = list(char_hold.values())
+        for i in range(len(val_list)):
+            for j in range(i,len(val_list)):
+                if val_list[i]<val_list[j]:
+                    val_list[i],val_list[j] = val_list[j],val_list[i]
+                    key_list[i],key_list[j] = key_list[j],key_list[i]            
+        for i in range(len(key_list)):
+            res=res+(key_list[i]*val_list[i])
+        return res
