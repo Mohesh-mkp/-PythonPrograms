@@ -1,0 +1,22 @@
+
+class Solution:
+    def isValid(self, s: str) -> bool:
+        if len(s) <= 1 or len(s) %2 != 0:
+            return False
+
+        paren_stack = []
+        for chr in s:
+            if chr in ['(', '{', '[']:
+                paren_stack.append(chr)
+            else:
+                if not paren_stack:
+                    return False    
+                top_char = paren_stack.pop()
+                if chr == '}' and top_char != '{':
+                    return False
+                elif chr == ']' and top_char != '[':
+                    return False
+                elif chr == ')' and top_char != '(':
+                    return False
+            
+        return len(paren_stack) == 0
