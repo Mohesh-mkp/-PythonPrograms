@@ -1,1 +1,20 @@
+'''
+# pattern 1
+
+*
+**
+***
+**
+*
+
+'''
+
+
+base = int(input('Enter base value: '))
+for i in range(base):
+    print('*'*(i+1))
+for i in range(base):
+    print('*'*(base-i-1))
+    
+
 
