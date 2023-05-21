@@ -1,20 +1,120 @@
-'''
 # pattern 1
 
+Enter base value: 3
 *
 **
 ***
 **
 *
 
-'''
-
-
 base = int(input('Enter base value: '))
 for i in range(base):
     print('*'*(i+1))
 for i in range(base):
     print('*'*(base-i-1))
-    
+
+-----------------------------#######################----------------------------------
+# pattern 2
+
+Enter base value: 3
+  * 
+ * * 
+* * * 
+
+base = int(input('Enter base value: '))
+for i in range(base):
+    print(' '*(base-i-1) + '* '*(i+1))
+
+-----------------------------#######################----------------------------------
+
+# pattern 3
+
+Enter base value: 4
+* * * * 
+ * * * 
+  * * 
+   * 
+
+base = int(input('Enter base value: '))
+for i in range(base):
+    print(' '*i + '* '*(base-i))
+
+-----------------------------#######################----------------------------------
+
+# pattern 4
+
+Enter base value: 4
+* * * * 
+ * * * 
+  * * 
+   * 
+  * * 
+ * * * 
+* * * *
+
+base = int(input('Enter base value: '))
+for i in range(base):
+   print(' '*i + '* '*(base-i))
+for j in range(1,base):
+    print(' '*(base-j-1) + '* '*(j+1))
+
+-----------------------------#######################----------------------------------
+
+# pattern 5
+
+Enter base value: 4
+   * 
+  * * 
+ * * * 
+* * * * 
+ * * * 
+  * * 
+   *
+
+base = int(input('Enter base value: '))
+for i in range(base):
+    print(' '*(base-i-1) + '* '*(i+1))
+for j in range(1,base):
+    print(' '*j +'* '*(base-j))
+
+-----------------------------#######################----------------------------------
+
+# pattern 6
+
+Enter base value: 4
+****
+***
+**
+*
+**
+***
+****
+
+base = int(input('Enter base value: '))
+for i in range(base):
+    print('*'*(base-i))
+for j in range(1,base):
+    print('*'*(j+1))
+
+-----------------------------#######################----------------------------------
+
+# pattern 7
+
+Enter base value: 4
+****
+ ***
+  **
+   *
+  **
+ ***
+****
+
+base = int(input('Enter base value: '))
+for i in range(base):
+    print(' '*i+'*'*(base-i))
+for j in range(1,base):
+    print(' '*(base-j-1)+'*'*(j+1))
+
+
 
 
