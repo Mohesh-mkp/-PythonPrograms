@@ -1,0 +1,27 @@
+
+def reverse_str(str_1):
+    str1 = []
+    for i in str_1:
+        str1.append(i)
+    str1_len = len(str1)
+    start = 0
+    end = str1_len - 1
+    res = ''
+    while (start < end):
+        if str1[start] == ' ':
+            start+=1
+        elif str1[end] == ' ':
+            end-=1
+        else:
+           str1[start], str1[end] = str1[end], str1[start]
+           start+=1
+           end-=1
+    
+    for i in str1:
+        res = res+i
+    
+    return res
+n = input('Enter string: ')
+print(reverse_str(n))
+
+
