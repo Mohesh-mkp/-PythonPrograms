@@ -1,0 +1,28 @@
+# Python program to interchange elements in a list
+
+def interchange_index(lst1, start, end):
+    cur, val = 0, 0
+    
+    try:
+        for ele in range(len(lst1)):
+            if ele == start:
+                cur = ele
+                print('Start value found.')
+
+            if ele == end:
+                val = ele
+                print('End value found.')
+
+        # Raise an IndexError explicitly when accessing lst1[end]
+        lst1[end]
+
+    except IndexError:
+        print('Index out of range. Please enter valid indices.')
+        return
+
+    lst1[cur], lst1[val] = lst1[val], lst1[cur]
+    print(lst1)
+
+l1 = [0, 1, 2, 3, 4]
+interchange_index(l1, 2, 6)
+
