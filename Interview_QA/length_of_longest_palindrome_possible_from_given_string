@@ -1,0 +1,29 @@
+
+# To check weather the given string can be palindrome or not, by removing additional alphabet make sure to return the length of palindrome string
+
+def verify_longest_palindrome(str1):
+    str_dict, str_list = {}, []
+    res = 0
+    start, end = 0, len(str1)-1
+    
+    for ch in str1:
+        if ch in str_dict:
+            str_dict[ch] += 1
+        else:
+            str_dict[ch] = 1
+    
+    for key, val in str_dict.items():
+        if val %2 != 0:
+            str_list.append(key)
+            str_dict[key] = val - 1
+    
+    for key, val in str_dict.items():
+        res = res + val
+    
+    if len(str_list) == 0:
+        return res
+    else:
+        return res + 1
+
+s = 'abccccdd'
+print(verify_longest_palindrome(s))
