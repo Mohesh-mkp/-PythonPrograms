@@ -1,0 +1,18 @@
+# Python | Ways to find length of list
+
+def length_of_list(lst1):
+    try:
+        count = 0
+        for i in lst1:
+            count += 1
+        return count
+    except TypeError:
+        print("Error: Please provide a valid list.")
+        return 0
+
+# Example usage
+l1 = [1, 2, 3, 4]
+print("Length of list l1:", length_of_list(l1))
+
+empty_list = []
+print("Length of empty list:", length_of_list(empty_list))
