@@ -1,0 +1,27 @@
+ Write a function which takes 1<=N<=100 value and returns array of provided value length only when adding all the list of array equals to 0
+
+import random
+
+def sum_arr(base):
+    arr_list = []
+    for i in range(base-1):
+        ch = random.randrange(-100, 100)
+        while ch == 0:
+            print('switching here',i)
+            ch = random.randrange(-100, 100)
+        arr_list.append(ch)
+    res = 0
+    for num in arr_list:
+        res = res - num
+    
+    arr_list.append(res)
+    return arr_list
+
+base = int(input('Enter length of list: '))
+print(sum_arr(base))
+
+
+
+
+
+
