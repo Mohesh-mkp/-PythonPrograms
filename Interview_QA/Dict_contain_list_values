@@ -1,0 +1,43 @@
+
+# from collections import defaultdict
+
+files = ['apple.txt', 'yahoo.pdf', 'gmail.pdf', 'google.txt', 'amazon.pdf','facebook.txt', 'flipkart.pdf']
+file_extension_list = ["txt", "pdf", "exe"]
+
+# my_dict = defaultdict(list)
+
+file_extension_dict = {}
+
+# key : [list]
+
+
+for file in files:
+    splits = file.split(".")
+    
+    if splits[1] in file_extension_list:
+        idx = file_extension_list.index(splits[1])
+        if file_extension_list[idx] in file_extension_dict:
+            file_extension_dict[file_extension_list[idx]].append(file)
+        else:
+            file_extension_dict[file_extension_list[idx]] = [file]
+            
+    else:
+        print("Unsupported extension type")
+
+'''
+for file in files:
+    splits = file.split(".")
+    #print(splits)
+    if splits[1] in file_extension_list:
+        idx = file_extension_list.index(splits[1])
+        file_extension_dict[file_extension_list[idx]].append(file)
+    else:
+        print("Unsupported extension type")
+
+'''
+for key, val in file_extension_dict.items():
+    print(key, val)
+
+#print(file_extension_dict)
+
+
