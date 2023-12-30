@@ -1,0 +1,23 @@
+# group files with different extension  
+files = ['amazon.txt','flipkart.pdf','lenskart.exe','speed.org','speeddial.exe','snapdeal.txt','tree.mp4','obito.pdf']
+
+ext_list = []
+
+file_dict = {}
+
+for file in files:
+    file_list = file.split('.')
+    if file_list[1] not in ext_list:
+        ext_list.append(file_list[1])
+
+
+for file in files:
+    for ext in ext_list:
+        if ext in file:
+            if ext not in file_dict:
+                file_dict[ext] = [file]
+            else:
+                file_dict[ext].append(file)
+
+print(file_dict)
+    
