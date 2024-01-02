@@ -1,0 +1,22 @@
+# To check whether the value is prime number or not
+
+def prime_check(base):
+    i,res = 1, False
+    for i in range(2, base):
+        if base % i == 0:
+            res = False
+            break
+    else:
+        res = True
+    if base == 0:
+        res = False
+    return res
+
+base = int(input('Enter base value: '))
+prime_num_list = []
+
+for ele in range(base):
+    if prime_check(ele) == True:
+        prime_num_list.append(ele)
+
+print(f'Prime number list in range of {base}: \n {prime_num_list}')
